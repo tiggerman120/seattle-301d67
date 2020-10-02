@@ -6,7 +6,7 @@ const leftImage = document.getElementById('left');
 const centerImage = document.getElementById('center');
 const rightImage = document.getElementById('right');
 
-let allProducts = [];
+var allProducts = [];
 const container = document.getElementById('image_container');
 const viewed = [];
 const labels = [];
@@ -18,7 +18,7 @@ const votes = [];
 
 function Product(name) {
   this.name = name;
-  this.path = `${'img/'} ${name} ${'.jpg'}`;
+  this.path = 'img/' + name + '.jpg';
   this.votes = 0;
   this.views = 0;
   allProducts.push(this);
