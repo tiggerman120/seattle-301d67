@@ -1,20 +1,20 @@
 'use strict';
 
-let names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
+const names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 
-let leftImage = document.getElementById('left');
-let centerImage = document.getElementById('center');
-let rightImage = document.getElementById('right');
+const leftImage = document.getElementById('left');
+const centerImage = document.getElementById('center');
+const rightImage = document.getElementById('right');
 
-let allProducts = [];
-let container = document.getElementById('image_container');
-let viewed = [];
-let labels = [];
-let pics = [leftImage, centerImage, rightImage];
-let list = document.getElementById('productlist');
-let totalClicks = 0;
-let views = [];
-let votes = [];
+const allProducts = [];
+const container = document.getElementById('image_container');
+const viewed = [];
+const labels = [];
+const pics = [leftImage, centerImage, rightImage];
+const list = document.getElementById('productlist');
+const totalClicks = 0;
+const views = [];
+const votes = [];
 
 function Product(name) {
   this.name = name;
@@ -36,12 +36,12 @@ function displayPics() {
     }
   }
   console.log(rando);
-  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the letiable declaration from `let to `let`.
-  // the error threw because we declared rando using let on line 33 which is inside the displayPics method. let has a local scope so that variable isn't declared outside of the function displayPics
+  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
+  // the error threw because we declared rando using const on line 33 which is inside the displayPics method. const has a local scope so that variable isn't declared outside of the function displayPics
   console.log(viewed);
 
   for (let i = 0; i < 3; i++) {
-    let temp = viewed.shift();
+    const temp = viewed.shift();
     pics[i].src = allProducts[temp].path;
     pics[i].id = allProducts[temp].name;
     allProducts[temp].views += 1;
@@ -59,7 +59,7 @@ function handleClick(event) {
     showList();
     makeChart();
   }
-  for (let i = 0; i < names.length; i++) {
+  for (const i = 0; i < names.length; i++) {
     if (event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
       console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
@@ -71,8 +71,8 @@ function handleClick(event) {
 }
 
 function showList() {
-  for (let i = 0; i < allProducts.length; i++) {
-    let liEl = document.createElement('li');
+  for (const i = 0; i < allProducts.length; i++) {
+    const liEl = document.createElement('li');
     liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
     list.appendChild(liEl);
   }
@@ -88,7 +88,7 @@ function makeChartData() {
 
 function makeChart() {
   makeChartData();
-  let ctx = document.getElementById('chartypants').getContext('2d');
+  const ctx = document.getElementById('chartypants').getContext('2d');
   new Chart(ctx, { //eslint-disable-line
     type: 'bar',
     data: {
