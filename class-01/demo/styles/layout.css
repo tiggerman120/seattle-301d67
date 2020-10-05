@@ -1,0 +1,23 @@
+header {
+  background: black;
+  color: white;
+}
+
+footer {
+  background: grey;
+}
+
+/* media queries are used for conditional modification */
+
+@media (min-width: 960px) {
+  section {
+    background: red;
+  }
+
+  div {
+    width: 33.33%;
+    float: left;
+    background: black;
+    height: 5vw;
+  }
+}
