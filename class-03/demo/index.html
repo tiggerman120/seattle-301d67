@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta data and dependency management -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seattle Data</title>
+    <!-- implement the templating system for handling our seattle data -->
+    <script id="neighborhood-template" type="text/x-tmpl-mustache">
+      <section>
+        <h2>{{ name }}</h2>
+        <p>Part of: {{ city }}</p>
+        <p>Founded on: {{ founded }}</p>
+        <p>Population: {{ population }}</p>
+        {{{ body }}}
+      </section>
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Neighborhood Stats:</h1>
+    </header>
+
+    <main id="neighborhoods">
+
+    </main>
+
+    <!-- to create a scaffold and template for our neighborhood data -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
+    <script src="scripts/dataSet.js"></script>
+    <script src="scripts/neighborhood.js"></script>
+  </body>
+</html>
